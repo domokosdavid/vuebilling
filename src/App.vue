@@ -3,7 +3,8 @@
     <HelloWorld 
     v-for="row in rows"
     :msg="row"
-    :key="row.title"/>
+    :key="row.title"
+    />
   </div>
 </template>
 
