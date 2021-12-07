@@ -10,6 +10,7 @@
         <th>Ár</th>
         <th>Mennyiség</th>
         <th>Operations</th>
+        <th>Összérték</th>
       </tr>
       </thead>
       <tbody>
@@ -22,8 +23,9 @@
               <button>Módosít</button>
               <button v-on:click="deleteItem">X</button>
             </td>
-            
+          <td>{{ row.price * row.quantity }} </td>
         </tr>
+        
         <td>
               <input type="text" v-model="title" placeholder="Név">
             </td>
