@@ -26,16 +26,16 @@
 
         <tr>
           <td>
-                <input type="text" v-model="title" placeholder="Név">
+                <input type="text" v-model="ujoszlop.title" placeholder="Név">
               </td>
               <td>
-                  <input type="number" v-model="price" placeholder="Ár">
+                  <input type="number" v-model="ujoszlop.price" placeholder="Ár">
               </td>
               <td>
-                  <input type="number" v-model="quantity" placeholder="Darabszám">
+                  <input type="number" v-model="ujoszlop.quantity" placeholder="Mennyiség">
               </td>
               <td>
-                  <button> Hozzáad</button>
+                  <button @click="hozzaadGomb()"> Hozzáad</button>
               </td>
         </tr>
       </tbody>
@@ -50,10 +50,22 @@ export default {
   methods: {
     deleteEvent(title) {
       this.rows = this.rows.filter((e) => e.title !== title);
+    },
+    hozzaadGomb(){
+      this.rows.push({
+        title: this.ujoszlop.title, 
+        price: this.ujoszlop.price, 
+        quantity: this.ujoszlop.quantity}
+        );
     }
   },
   data() {
     return {
+      ujoszlop:{
+          title: "",
+          price: null,
+          quantity: null,
+      },
       rows: [
         {
           title: "Kerék",
