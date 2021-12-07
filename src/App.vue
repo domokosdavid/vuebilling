@@ -6,6 +6,7 @@
         <th>Termék</th>
         <th>Ár</th>
         <th>Mennyiség</th>
+        <th>Operations</th>
       </tr>
       </thead>
       <tbody>
@@ -14,6 +15,10 @@
             <td>{{row.title}}</td>
             <td>{{row.price}}</td>
             <td>{{row.quantity}}</td>
+            <td>
+              <button>Törlés</button>
+              <button>Módosít</button>
+            </td>
         </tr>
 
       </tbody>
