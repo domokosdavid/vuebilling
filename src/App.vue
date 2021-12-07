@@ -1,20 +1,33 @@
 <template>
   <div id="app">
-    <HelloWorld 
-    v-for="row in rows"
-    :msg="row"
-    :key="row.title"
-    />
+    <table>
+      <thead>
+        <tr>
+        <th>Termék</th>
+        <th>Ár</th>
+        <th>Mennyiség</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr v-for="row in rows"
+            v-bind:key="row.title">
+            <td>{{row.title}}</td>
+            <td>{{row.price}}</td>
+            <td>{{row.quantity}}</td>
+        </tr>
+
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+
   },
   data() {
     return {
