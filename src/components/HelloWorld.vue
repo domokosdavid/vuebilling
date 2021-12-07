@@ -1,6 +1,16 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <table>
+      <tr>
+        <th>{{msg.title}}</th>
+      </tr>
+      <tr>
+        <td>{{msg.price}}</td>
+      </tr>
+      <tr>
+        <td>{{msg.quantity}}</td>
+      </tr>
+    </table>
     
   </div>
 </template>

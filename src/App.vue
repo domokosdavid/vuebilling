@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <HelloWorld msg="hello"/>
+    <HelloWorld 
+    v-for="row in rows"
+    :msg="row"
+    :key="row.title"/>
   </div>
 </template>
 
