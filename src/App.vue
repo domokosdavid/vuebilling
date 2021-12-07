@@ -1,98 +1,84 @@
 <template>
   <div id="app">
-    <HelloWorld
-    v-on:delete-item="deleteAdat"
-    />
     <table>
       <thead>
         <tr>
-        <th>Termék</th>
-        <th>Ár</th>
-        <th>Mennyiség</th>
-        <th>Operations</th>
-        <th>Összérték</th>
-      </tr>
-      </thead>
-      <tbody>
-        <tr v-for="row in rows"
-            v-bind:key="row.title">
-            <td>{{row.title}}</td>
-            <td>{{row.price}}</td>
-            <td>{{row.quantity}}</td>
-            <td>
-              <button>Módosít</button>
-              <button v-on:click="deleteItem">X</button>
-            </td>
-          <td>{{ row.price * row.quantity }} </td>
+          <th>Név</th>
+          <th>Ár</th>
+          <th>Mennyiség</th>
+          <th>Operations</th>
+          <th>Összérték</th>
         </tr>
-        
-        <td>
-              <input type="text" v-model="title" placeholder="Név">
-            </td>
-            <td>
-              <input type="number" v-model="price" placeholder="Ár">
-            </td>
-            <td>
-              <input type="number" v-model="quantity" placeholder="Darabszám">
-            </td>
-            <button v-on:click="Hozzaad">Hozzáad</button>
+      </thead>
 
+      <tbody>
+        <tr v-for="row in rows" v-bind:key="row.title">
+          <td>{{ row.title }}</td>
+          <td>{{ row.price }}</td>
+          <td>{{ row.quantity }}</td>
+          <td>
+            <button id="edit">Módosít</button>
+            <button @click="deleteEvent(row.title)" id="delete">X</button>
+            
+          </td>
+          <td>{{ row.price * row.quantity }}</td>
+        </tr>
+
+        <tr>
+          <td>
+                <input type="text" v-model="title" placeholder="Név">
+              </td>
+              <td>
+                  <input type="number" v-model="price" placeholder="Ár">
+              </td>
+              <td>
+                  <input type="number" v-model="quantity" placeholder="Darabszám">
+              </td>
+              <td>
+                  <button> Hozzáad</button>
+              </td>
+        </tr>
       </tbody>
     </table>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name: "App",
+  components: {},
+  methods: {
+    deleteEvent(title) {
+      this.rows = this.rows.filter((e) => e.title !== title);
+    }
   },
   data() {
     return {
       rows: [
         {
-          title: 'Kerék',
+          title: "Kerék",
           price: 100,
-          quantity: 12
+          quantity: 12,
         },
         {
-          title: 'Teleszkóp',
+          title: "Teleszkóp",
           price: 1000,
-          quantity: 300
+          quantity: 300,
         },
         {
-          title: 'Kormány',
+          title: "Kormány",
           price: 230,
-          quantity: 5
+          quantity: 5,
         },
         {
-          title: 'Ajtó',  
+          title: "Ajtó",
           price: 45120,
-          quantity: 321
+          quantity: 321,
         },
       ]
-    }
-  },
-  methods: {
-    deleteAdat(row) {
-      this.rows = this.rows.filter(function(item){
-        return row.title != item.title
-      })
-    }
-  },
-  Hozzaad(){
-    this.$$emit('item-post',{
-      new:{
-        title:this.title,
-        price:this.price,
-        quantity:this.quantity
-      }
-    })
-  } 
-}
+    };
+  }
+};
 </script>
 
 <style>
