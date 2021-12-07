@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld msg="hello"/>
   </div>
 </template>
 
@@ -32,7 +31,7 @@ export default {
           quantity: 5
         },
         {
-          title: 'Ajtó',
+          title: 'Ajtó',  
           price: 45120,
           quantity: 321
         },
