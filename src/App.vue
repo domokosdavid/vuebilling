@@ -33,7 +33,7 @@
             <td>
               <input type="number" v-model="quantity" placeholder="Darabszám">
             </td>
-        
+            <button v-on:click="Hozzaad">Hozzáad</button>
 
       </tbody>
     </table>
@@ -80,6 +80,15 @@ export default {
         return row.title != item.title
       })
     }
+  },
+  Hozzaad(){
+    this.$$emit('item-post',{
+      new:{
+        title:this.title,
+        price:this.price,
+        quantity:this.quantity
+      }
+    })
   } 
 }
 </script>
