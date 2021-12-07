@@ -16,8 +16,9 @@
             <td>{{row.price}}</td>
             <td>{{row.quantity}}</td>
             <td>
-              <button>Törlés</button>
               <button>Módosít</button>
+              <button>X</button>
+              
             </td>
         </tr>
 
