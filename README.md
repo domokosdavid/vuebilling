@@ -1,4 +1,4 @@
-# [Név]
+# [Domokos Dávid]
 
 ## Hogyan kezdj neki?
 
