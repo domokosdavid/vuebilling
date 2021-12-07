@@ -1,7 +1,5 @@
 <template>
   <div>
-    
-    
   </div>
 </template>
 
@@ -10,6 +8,11 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  methods: {
+    deleteItem(){
+      this.$emit('delete-item', this.msg)
+    }
   }
 }
 </script>

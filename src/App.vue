@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <HelloWorld
+    v-on:delete-item="deleteAdat"
+    />
     <table>
       <thead>
         <tr>
@@ -17,10 +20,20 @@
             <td>{{row.quantity}}</td>
             <td>
               <button>Módosít</button>
-              <button>X</button>
-              
+              <button v-on:click="deleteItem">X</button>
             </td>
+            
         </tr>
+        <td>
+              <input type="text" v-model="title" placeholder="Név">
+            </td>
+            <td>
+              <input type="number" v-model="price" placeholder="Ár">
+            </td>
+            <td>
+              <input type="number" v-model="quantity" placeholder="Darabszám">
+            </td>
+        
 
       </tbody>
     </table>
@@ -28,12 +41,12 @@
 </template>
 
 <script>
-
+import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-
+    HelloWorld
   },
   data() {
     return {
@@ -60,7 +73,14 @@ export default {
         },
       ]
     }
-  }
+  },
+  methods: {
+    deleteAdat(row) {
+      this.rows = this.rows.filter(function(item){
+        return row.title != item.title
+      })
+    }
+  } 
 }
 </script>
 
